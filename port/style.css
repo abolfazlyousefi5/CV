@@ -1,0 +1,58 @@
+body {
+  font-family: "Vazirmatn", sans-serif !important;
+  direction: rtl;
+}
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: right;
+  direction: rtl;
+  display: inline-block;
+}
+.typing-cursor {
+  color: #ff6a3d;
+  font-weight: bold;
+  animation: blink-caret 0.75s step-end infinite;
+}
+@keyframes blink-caret {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+@media (max-width: 768px) {
+  header nav {
+    display: none !important;
+  }
+  section.flex-col.md\:flex-row-reverse {
+    flex-direction: column !important;
+  }
+  .max-w-6xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+::-webkit-scrollbar {
+  width: 8px;
+  background: #23262f;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF6A3D;
+  border-radius: 4px;
+}
+
+/* رنگ و هاور منوی بالا */
+header nav a {
+  color: #E5E7EB !important;
+  transition: color 0.2s ease;
+}
+
+header nav a:hover {
+  color: #FF6A3D !important;
+}
