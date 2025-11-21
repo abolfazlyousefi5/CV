@@ -40,17 +40,37 @@ function createTypingEffect(element, texts, speed = 100) {
 }
 
 // اجرای افکت تایپ وقتی صفحه بارگذاری شد
-document.addEventListener("DOMContentLoaded", function () {
-  const typingElement = document.querySelector(".typing-effect");
+document.addEventListener('DOMContentLoaded', function () {
+  const typingElement = document.querySelector('.typing-effect');
 
   if (typingElement) {
     const texts = [
-      "من ابوالفضل هستم",
-      "کارآموز بک‌اند با پایتون",
-      "علاقه‌مند به جنگو ",
-      "در مسیر یادگیری دیتابیس و تست‌نویسی",
+      'من ابوالفضل هستم',
+      'کارآموز بک‌اند با پایتون',
+      'علاقه‌مند به جنگو و FastAPI',
+      'در مسیر یادگیری دیتابیس و تست‌نویسی',
     ];
 
     createTypingEffect(typingElement, texts, 150);
+  }
+
+  // منوی همبرگری موبایل
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function () {
+      mobileMenu.classList.toggle('open');
+      mobileMenuButton.classList.toggle('active');
+    });
+
+    // بستن منو بعد از کلیک روی لینک‌ها
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        mobileMenuButton.classList.remove('active');
+      });
+    });
   }
 });

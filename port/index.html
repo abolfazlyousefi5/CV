@@ -14,13 +14,29 @@
 <body class="bg-[#181C23] text-white min-h-screen" dir="rtl">
   <header class="flex justify-between items-center px-8 py-6 border-b border-[#23262F]">
     <div class="text-lg font-bold"> ابوالفضل یوسفی</div>
+    <!-- منوی دسکتاپ -->
     <nav class="hidden md:flex gap-8">
       <a href="#home" class="text-[#E5E7EB] hover:text-[#FF6A3D] transition-colors duration-200">خانه</a>
       <a href="#about" class="text-[#E5E7EB] hover:text-[#FF6A3D] transition-colors duration-200">درباره من</a>
       <a href="#projects" class="text-[#E5E7EB] hover:text-[#FF6A3D] transition-colors duration-200">پروژه‌ها</a>
       <a href="#contact" class="text-[#E5E7EB] hover:text-[#FF6A3D] transition-colors duration-200">تماس</a>
     </nav>
+    <!-- دکمه منوی موبایل -->
+    <button id="mobile-menu-button"
+      class="md:hidden w-11 h-11 flex items-center justify-center rounded-full bg-[#181C23] text-[#FF6A3D] border border-[#FF6A3D] shadow-lg transition-all duration-200 hover:bg-[#23262F]"
+      aria-label="باز کردن منو">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
   </header>
+  <!-- منوی موبایل -->
+  <nav id="mobile-menu" class="md:hidden bg-[#181C23] border-b border-[#23262F] px-8 py-4 space-y-3">
+    <a href="#home" class="block text-[#E5E7EB] hover:text-[#FF6A3D] transition-colors duration-200">خانه</a>
+    <a href="#about" class="block text-[#E5E7EB] hover:text-[#FF6A3D] transition-colors duration-200">درباره من</a>
+    <a href="#projects" class="block text-[#E5E7EB] hover:text-[#FF6A3D] transition-colors duration-200">پروژه‌ها</a>
+    <a href="#contact" class="block text-[#E5E7EB] hover:text-[#FF6A3D] transition-colors duration-200">تماس</a>
+  </nav>
   <section id="home" class="flex flex-col md:flex-row justify-between items-center px-8 py-16 max-w-6xl mx-auto">
     <div class="flex-1 flex justify-center mt-10 md:mt-0">
       <div class="relative">
@@ -34,12 +50,10 @@
       <h3 class="text-2xl md:text-3xl font-semibold mb-2"> <span class="typing-effect"></span> <span
           class="typing-cursor">|</span></h3>
       <h1 class="text-4xl md:text-5xl font-bold mb-6"> برنامه نویس پایتون</h1>
-      <div class="flex space-x-4 mb-8" style="margin-top: 2vh;">
-        <a href="#contact">
-          <button class="bg-[#FF6A3D] text-white px-6 py-2 rounded hover:bg-[#ff7a50] transition">تماس با من </button>
-        </a>
-        <a href="/port/assets/resume.pdf" download class="border border-white px-6 py-2 rounded hover:bg-white hover:text-[#181C23] transition">رزومه من</a>
-      </div>
+      <div class="flex flex-wrap gap-4 mb-8 home-buttons" style="margin-top: 2vh;>
+          <a href="#contact"><button class="bg-[#FF6A3D] text-white px-6 py-2 rounded hover:bg-[#ff7a50] transition"> تماس با من</button></a>
+          <a href="resume.pdf" download class="border border-white px-6 py-2 rounded hover:bg-white hover:text-[#181C23] transition">رزومه من</a>
+        </div>
       <div class="flex space-x-6 text-[#7B7F86] text-sm">
         <span>HTML5</span>
         <span>CSS</span>
@@ -50,47 +64,60 @@
       </div>
     </div>
   </section>
-  <div class="mb-8 space-y-4" style="width: 60%;margin-right: 32vh;">
+  <!-- Skill Progress Bars -->
+  <div class="mb-8 space-y-4 skills-wrapper">
     <div>
-      <div class="flex items-center justify-between mb-1 text-sm"> <span class="text-[#E5E7EB]">HTML</span> <span
-          class="text-[#FF6A3D] font-semibold">70%</span> </div>
+      <div class="flex items-center justify-between mb-1 text-sm">
+        <span class="text-[#E5E7EB]">HTML</span>
+        <span class="text-[#FF6A3D] font-semibold">70%</span>
+      </div>
       <div class="w-full bg-[#23262F] rounded-full h-2">
-        <div class="bg-[#FF6A3D] h-2 rounded-full" style="width: 70%;"></div>
+        <div class="bg-[#FF6A3D] h-2 rounded-full skill-bar-fill" style="width: 70%;"></div>
       </div>
     </div>
     <div>
-      <div class="flex items-center justify-between mb-1 text-sm"> <span class="text-[#E5E7EB]">CSS</span> <span
-          class="text-[#FF6A3D] font-semibold">60%</span> </div>
+      <div class="flex items-center justify-between mb-1 text-sm">
+        <span class="text-[#E5E7EB]">CSS</span>
+        <span class="text-[#FF6A3D] font-semibold">60%</span>
+      </div>
       <div class="w-full bg-[#23262F] rounded-full h-2">
-        <div class="bg-[#FF6A3D] h-2 rounded-full" style="width: 60%;"></div>
+        <div class="bg-[#FF6A3D] h-2 rounded-full skill-bar-fill" style="width: 60%;"></div>
       </div>
     </div>
     <div>
-      <div class="flex items-center justify-between mb-1 text-sm"> <span class="text-[#E5E7EB]">Python</span> <span
-          class="text-[#FF6A3D] font-semibold">40%</span> </div>
+      <div class="flex items-center justify-between mb-1 text-sm">
+        <span class="text-[#E5E7EB]">Python</span>
+        <span class="text-[#FF6A3D] font-semibold">40%</span>
+      </div>
       <div class="w-full bg-[#23262F] rounded-full h-2">
-        <div class="bg-[#FF6A3D] h-2 rounded-full" style="width: 40%;"></div>
+        <div class="bg-[#FF6A3D] h-2 rounded-full skill-bar-fill" style="width: 40%;"></div>
       </div>
     </div>
     <div>
-      <div class="flex items-center justify-between mb-1 text-sm"> <span class="text-[#E5E7EB]">SQL</span> <span
-          class="text-[#FF6A3D] font-semibold">50%</span> </div>
+      <div class="flex items-center justify-between mb-1 text-sm">
+        <span class="text-[#E5E7EB]">SQL</span>
+        <span class="text-[#FF6A3D] font-semibold">50%</span>
+      </div>
       <div class="w-full bg-[#23262F] rounded-full h-2">
-        <div class="bg-[#FF6A3D] h-2 rounded-full" style="width: 50%;"></div>
+        <div class="bg-[#FF6A3D] h-2 rounded-full skill-bar-fill" style="width: 50%;"></div>
       </div>
     </div>
     <div>
-      <div class="flex items-center justify-between mb-1 text-sm"> <span class="text-[#E5E7EB]">Git</span> <span
-          class="text-[#FF6A3D] font-semibold">40%</span> </div>
+      <div class="flex items-center justify-between mb-1 text-sm">
+        <span class="text-[#E5E7EB]">Git</span>
+        <span class="text-[#FF6A3D] font-semibold">40%</span>
+      </div>
       <div class="w-full bg-[#23262F] rounded-full h-2">
-        <div class="bg-[#FF6A3D] h-2 rounded-full" style="width: 40%;"></div>
+        <div class="bg-[#FF6A3D] h-2 rounded-full skill-bar-fill" style="width: 40%;"></div>
       </div>
     </div>
     <div>
-      <div class="flex items-center justify-between mb-1 text-sm"> <span class="text-[#E5E7EB]">GitHub</span> <span
-          class="text-[#FF6A3D] font-semibold">70%</span> </div>
+      <div class="flex items-center justify-between mb-1 text-sm">
+        <span class="text-[#E5E7EB]">GitHub</span>
+        <span class="text-[#FF6A3D] font-semibold">70%</span>
+      </div>
       <div class="w-full bg-[#23262F] rounded-full h-2">
-        <div class="bg-[#FF6A3D] h-2 rounded-full" style="width: 70%;"></div>
+        <div class="bg-[#FF6A3D] h-2 rounded-full skill-bar-fill" style="width: 70%;"></div>
       </div>
     </div>
   </div>

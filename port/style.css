@@ -1,7 +1,8 @@
 body {
-  font-family: "Vazirmatn", sans-serif !important;
+  font-family: 'Vazirmatn', sans-serif !important;
   direction: rtl;
 }
+
 .typing-effect {
   overflow: hidden;
   white-space: nowrap;
@@ -9,50 +10,133 @@ body {
   direction: rtl;
   display: inline-block;
 }
+
 .typing-cursor {
-  color: #ff6a3d;
+  color: #FF6A3D;
   font-weight: bold;
   animation: blink-caret 0.75s step-end infinite;
 }
+
 @keyframes blink-caret {
-  from,
-  to {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
 }
+
 html {
   scroll-behavior: smooth;
 }
+
+/* چینش کلی نوار مهارت‌ها */
+.skills-wrapper {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ریسپانسیو برای موبایل */
 @media (max-width: 768px) {
+  /* هدر جمع‌وجورتر */
+  header {
+    padding: 1rem 1.5rem;
+  }
+
+  /* منوی هدر دسکتاپ در موبایل مخفی بماند */
   header nav {
     display: none !important;
   }
-  section.flex-col.md\:flex-row-reverse {
-    flex-direction: column !important;
+
+  /* سکشن خانه: تصویر و متن زیر هم و وسط‌چین */
+  #home {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
+
+  #home .flex-1 {
+    width: 100%;
+  }
+
+  #home .flex-1.text-right {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  /* دکمه‌های خانه در موبایل وسط‌چین شوند */
+  .home-buttons {
+    justify-content: center;
+  }
+
+  /* نوار مهارت‌ها در موبایل کمی جمع‌وجورتر شوند */
+  .skills-wrapper {
+    max-width: 90%;
+  }
+
+  /* پدینگ داخلی کلی در عرض کوچک */
   .max-w-6xl {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
 }
+
+/* اسکرول‌بار سفارشی */
 ::-webkit-scrollbar {
   width: 8px;
-  background: #23262f;
+  background: #23262F;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #FF6A3D;
   border-radius: 4px;
 }
 
-/* رنگ و هاور منوی بالا */
-header nav a {
+/* رنگ و هاور منوی بالا و منوی موبایل */
+header nav a,
+#mobile-menu a {
   color: #E5E7EB !important;
   transition: color 0.2s ease;
 }
 
-header nav a:hover {
+header nav a:hover,
+#mobile-menu a:hover {
   color: #FF6A3D !important;
+}
+
+/* دکمه منوی موبایل (همبرگری) */
+#mobile-menu-button {
+  cursor: pointer;
+}
+
+/* خود آیکون سه‌خط همیشه نارنجی باشد */
+#mobile-menu-button svg path {
+  stroke: #FF6A3D !important;
+}
+
+#mobile-menu-button.active {
+  transform: rotate(90deg) scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 106, 61, 0.5);
+}
+
+/* منوی موبایل با انیمیشن باز/بسته شدن */
+#mobile-menu {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform-origin: top;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding-top 0.3s ease, padding-bottom 0.3s ease;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#mobile-menu.open {
+  max-height: 300px; /* ارتفاع کافی برای لینک‌ها */
+  opacity: 1;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* نوار پیشرفت مهارت‌ها از سمت راست شروع شود */
+.skill-bar-fill {
+  display: block;
+  margin-left: auto;
 }
