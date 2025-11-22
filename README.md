@@ -5,7 +5,8 @@
 
 ---
 
-## 🎞️ پیش نمایش ![Preview](https://i.imgur.com/P4QBc3t.gif)
+## 🎞️ پیش نمایش
+![Preview](https://i.imgur.com/P4QBc3t.gif)
 
 ---
 ## ویژگی‌ها
