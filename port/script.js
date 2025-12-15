@@ -40,37 +40,69 @@ function createTypingEffect(element, texts, speed = 100) {
 }
 
 // اجرای افکت تایپ وقتی صفحه بارگذاری شد
-document.addEventListener('DOMContentLoaded', function () {
-  const typingElement = document.querySelector('.typing-effect');
+document.addEventListener("DOMContentLoaded", function () {
+  const typingElement = document.querySelector(".typing-effect");
 
   if (typingElement) {
     const texts = [
-      'من ابوالفضل هستم',
-      'کارآموز بک‌اند با پایتون',
-      'علاقه‌مند به جنگو و FastAPI',
-      'در مسیر یادگیری دیتابیس و تست‌نویسی',
+      "من ابوالفضل هستم",
+      "کارآموز بک‌اند با پایتون",
+      "علاقه‌مند به جنگو و FastAPI",
+      "در مسیر یادگیری دیتابیس و تست‌نویسی",
     ];
 
     createTypingEffect(typingElement, texts, 150);
   }
 
   // منوی همبرگری موبایل
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
 
   if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', function () {
-      mobileMenu.classList.toggle('open');
-      mobileMenuButton.classList.toggle('active');
+    mobileMenuButton.addEventListener("click", function () {
+      mobileMenu.classList.toggle("open");
+      mobileMenuButton.classList.toggle("active");
     });
 
     // بستن منو بعد از کلیک روی لینک‌ها
-    const mobileLinks = mobileMenu.querySelectorAll('a');
+    const mobileLinks = mobileMenu.querySelectorAll("a");
     mobileLinks.forEach(function (link) {
-      link.addEventListener('click', function () {
-        mobileMenu.classList.remove('open');
-        mobileMenuButton.classList.remove('active');
+      link.addEventListener("click", function () {
+        mobileMenu.classList.remove("open");
+        mobileMenuButton.classList.remove("active");
       });
     });
   }
+});
+const scrollBtn = document.getElementById("scrollToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 500) {
+    // وقتی 200px پایین رفت ظاهر بشه
+    scrollBtn.classList.remove("scale-0");
+    scrollBtn.classList.add("scale-100");
+  } else {
+    scrollBtn.classList.remove("scale-100");
+    scrollBtn.classList.add("scale-0");
+  }
+});
+
+scrollBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const duration = 800;
+  const start = window.scrollY;
+  const startTime = performance.now();
+
+  function scrollStep(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3); // ease-out
+    window.scrollTo(0, start * (1 - ease));
+
+    if (progress < 1) {
+      requestAnimationFrame(scrollStep);
+    }
+  }
+
+  requestAnimationFrame(scrollStep);
 });
